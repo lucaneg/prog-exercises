@@ -26,8 +26,6 @@ Write a Python function `qr` that, given a matrix `A`, computes its `QR` decompo
 
 Note: the `QR` decomposition is not unique up to the sign of the elements. In fact, since `Q` and `R` must be multiplied together to obtain `A`, it is possible to change the signs of the corresponding elements in `Q` and `R` while still satisfying `A = QR`. Thus, when comparing your results with the ones computed by numpy, you should focus on the abosulte values of your matrixes: `|Qcomputed| = |Qnumpy|` and `Rcomputed| = |Rnumpy|`. Remember to compare the matrixes using a tolerance.
 
-**Scores:** 0.1 for each hidden test case that passes
-
 ## Template
 
 ```py
@@ -164,10 +162,10 @@ def gs_process(A):
   U[:, 0] = A[:, 0]
   E[:, 0] = vector_norm(U[:, 0])
   for k in range(1, n):
-  U[:, k] = A[:, k].copy()
-  for j in range(k):
-    U[:, k] = U[:, k] - projection(U[:, j], A[:, k])
-  E[:, k] = vector_norm(U[:, k])
+    U[:, k] = A[:, k].copy()
+    for j in range(k):
+      U[:, k] = U[:, k] - projection(U[:, j], A[:, k])
+    E[:, k] = vector_norm(U[:, k])
   return U, E
 
 def qr(A):
@@ -175,8 +173,8 @@ def qr(A):
   Q = E
   R = np.zeros_like(A)
   for row in range(A.shape[0]):
-  for col in range(A.shape[1]):
-    if col >= row:
-    R[row, col] = A[:, col] @ E[:, row]
+    for col in range(A.shape[1]):
+      if col >= row:
+        R[row, col] = A[:, col] @ E[:, row]
   return Q, R
 ```

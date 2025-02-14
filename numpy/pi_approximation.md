@@ -15,8 +15,6 @@ For each sequence (where `x` is the name of the sequence - one of `a`, `b`, `c`,
   - the absolute distance between PI and the last element, `|math.pi - x_n|`, by passing the appropriate parameter to `print_error`
   - the trend of the sequence (increasing, decreasing, or oscillating) by passing a value (positive, negative, or zero) to `print_trend`. The value to pass must be determined by computing the ratio of each element in the sequence and the previous one (`x_i / x_(i-1)`), and checking if all of the ratios are positive, negative, or alternating between positive and negative
 
-**Scores:** 0.1 for each hidden test case that passes, plus a bonus of 0.1 if the only for loops used are in the `sequence_x` methods
-
 ## Template
 
 ```py
