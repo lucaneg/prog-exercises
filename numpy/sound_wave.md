@@ -1,7 +1,5 @@
 # Sound wave
 
-# Example: Sound wave part 2
-
 Recall example 2 from the binary files lecture. A sound wave is identified by the formula $s(t) = A \sin(2 \pi f t)$, where $A$ is the amplitude and $f$ is the frequency. Since computers are discrete systems, the formula to use when modeling such a wave becomes $s_n = A \sin(2\pi f \frac{n}{r}), n = 0, 1, \dots, m*r$ for a sound that lasts $m$ seconds and is sampled $r$ times each second. To generate a sound wave for the `A` note (`LA`) we had to generate a wave in a for loop similar to this:
 ```python
 for sample in range(0, length * samplerate):
