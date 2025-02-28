@@ -19,7 +19,7 @@ print(fifteen_jan < today) # you can compare dates with <, <=, ==, ...
 ## Template
 
 ```py
-import datetime"
+import datetime
 
 if __name__ == '__main__':
   company = LeasingCompany()
