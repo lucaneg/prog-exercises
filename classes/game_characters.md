@@ -15,15 +15,15 @@ Creare poi due classi:
 
 ```py
 if __name__ == '__main__':
-  kind = read(input)
+  kind = input()
   if kind == 'w':
-    strength = int(read(input))
+    strength = int(input())
     char = Warrior(strength)
     print(char.health, char.strength)
     
-    nops = int(read(input))
+    nops = int(input())
     for _ in range(nops):
-      line = read(input).split()
+      line = input().split()
       if line[0] == 'A':
         print(char.attack(int(line[1]), float(line[2])))
       elif line[0] == 'D':
@@ -35,14 +35,14 @@ if __name__ == '__main__':
         except Exception as e:
           print(e)
   else:
-    ability = int(read(input))
-    mana = int(read(input))
+    ability = int(input())
+    mana = int(input())
     char = Mage(ability, mana)
     print(char.health, char.ability, char.mana)
     
-    nops = int(read(input))
+    nops = int(input())
     for _ in range(nops):
-      line = read(input).split()
+      line = input().split()
       if line[0] == 'A':
         try:
           print(char.attack(int(line[1]), float(line[2])))
