@@ -102,3 +102,63 @@ OUT:
 243.0
 500
 ```
+
+## Solution
+
+```python
+class Lease:
+  def __init__(self, brand, model, starting_date, price):
+    self.brand = brand
+    self.model = model
+    self.starting_date = starting_date
+    self.price = price
+
+  def get_price(self):
+    return self.price
+
+  def __str__(self):
+    return f'Leasing a {self.brand} {self.model} for {self.get_price()} euro/month starting on {self.starting_date}'
+
+class PersonalLease(Lease):
+  def __init__(self, brand, model, starting_date, price, name, discount):
+    super().__init__(brand, model, starting_date, price)
+    self.name = name
+    self.discount = discount
+
+  def get_price(self):
+    return self.price - (self.price * self.discount / 100)
+
+  def __str__(self):
+    return super().__str__() + f' to {self.name}'
+
+class CorporateLease(Lease):
+  def __init__(self, brand, model, starting_date, price, company):
+    super().__init__(brand, model, starting_date, price)
+    self.company = company
+
+  def __str__(self):
+    return super().__str__() + f' to company {self.company}'
+
+class LeasingCompany:
+  def __init__(self):
+    self.leases = []
+
+  def __str__(self):
+    return '\n'.join([str(l) for l in self.leases])
+
+  def __iadd__(self, lease):
+    if isinstance(lease, PersonalLease):
+      for l in self.leases:
+        if isinstance(l, PersonalLease) and lease.name == l.name:
+          raise ValueError(f'{lease.name} already has a lease!')
+    
+    self.leases.append(lease)
+    return self
+
+  def calculate_income_after(self, start_date):
+    income = 0
+    for l in self.leases:
+      if l.starting_date >= start_date:
+        income += l.get_price()
+    return income
+```
