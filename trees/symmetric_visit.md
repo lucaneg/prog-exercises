@@ -54,6 +54,23 @@ class BinaryTree:
   def set_data(self, data):
     self.data = data
 
+  def __str__(self):
+    return self.str_aux('')
+
+  def str_aux(self, indent):
+    if self.is_leaf():
+      return str(self.get_data())
+    padding = indent.replace('l', '|  ').replace('r', '   ')
+    if self.get_left_child() is not None:
+      left_str = self.get_left_child().str_aux(indent + 'l')
+    else:
+      left_str = '(None)'
+    if self.get_right_child() is not None:
+      right_str = self.get_right_child().str_aux(indent + 'r')
+    else:
+      right_str = '(None)'
+    return f'{self.get_data()}\n{padding}+- {left_str}\n{padding}+- {right_str}'
+
 if __name__ == "__main__":
   nnodes = int(input())
   adj = dict()

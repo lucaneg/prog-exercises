@@ -49,6 +49,18 @@ class Tree:
   def set_data(self, data):
     self.data = data
 
+  def __str__(self):
+    return self.str_aux('')
+
+  def str_aux(self, indent):
+    if self.is_leaf():
+      return str(self.get_data())
+    padding = indent.replace('c', '|  ').replace('l', '   ')
+    ch_str = ''
+    for c in self.get_children():
+      ch_str += padding + '+- ' + c.str_aux(indent + ('c' if self.get_children().index(c) != len(self.get_children()) - 1 else 'l')) + '\n'
+    return (f'{self.get_data()}\n{ch_str}').strip()
+
 if __name__ == '__main__':
   nnodes = int(input())
   adj = dict()
