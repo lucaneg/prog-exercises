@@ -80,7 +80,7 @@ if __name__ == "__main__":
     nodes[n] = node
     adj[n] = list()
     if root == None:
-      root = idx
+      root = n
       tree = BinaryTree(node)
 
   nedges = int(input())
@@ -118,7 +118,7 @@ IN:
 10
 14
 13
-8
+7
 8 l 3
 8 r 10
 3 r 6
@@ -147,7 +147,7 @@ IN:
 10
 14
 5
-8
+7
 8 l 3
 8 r 10
 3 r 6

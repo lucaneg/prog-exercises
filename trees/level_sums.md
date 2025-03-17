@@ -97,9 +97,9 @@ if __name__ == '__main__':
     for side, dest in adj[current]:
       if side == 'l':
         tree.set_left_child(node, nodes[dest])
-    else:
+      else:
         tree.set_right_child(node, nodes[dest])
-    worklist.append(dest)
+      worklist.append(dest)
 
   print(level_sum(tree))
 ```
