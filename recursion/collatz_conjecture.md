@@ -1,4 +1,4 @@
-# Collatz conjecture",
+# Collatz conjecture
 
 The Collatz conjecture is one of the most famous unsolved problems in mathematics. The conjecture defines the following function:
 
