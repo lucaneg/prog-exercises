@@ -34,8 +34,7 @@ if __name__ == '__main__':
     n = random.randint(2, 5)
     rng = np.random.default_rng()
     mat = rng.integers(-10, 10, size=(n,n)).astype(np.float32)
-    print(determinant(mat))
-    print(np.linalg.det(mat))
+    print(determinant(mat) == np.linalg.det(mat))
 ```
 
 ## Testcases
@@ -99,10 +98,10 @@ def determinant(A):
     else:
         det = 0
         for col in range(A.shape[1]):
-        e = A[0, col]
-        coeff = 1 if col % 2 == 0 else -1
-        cols = [c for c in range(A.shape[1]) if c != col]
-        sub_matrix = A[1:, cols]
-        det += coeff * e * determinant(sub_matrix)
+            e = A[0, col]
+            coeff = 1 if col % 2 == 0 else -1
+            cols = [c for c in range(A.shape[1]) if c != col]
+            sub_matrix = A[1:, cols]
+            det += coeff * e * determinant(sub_matrix)
     return det
 ```
