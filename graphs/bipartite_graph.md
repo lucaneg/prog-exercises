@@ -91,7 +91,7 @@ class GraphWithAdjacencyList:
       else:
         edges.append(str(e[0]) + ' -> ' + str(e[1]) + ' w=' + str(e[2]))
 
-    return 'Vertexes: ' + ', '.join([str(v) for v in self.get_vertexes()]) + \\
+    return 'Vertexes: ' + ', '.join([str(v) for v in self.get_vertexes()]) + \
       '\nEdges: ' + ', '.join(edges)
 
 if __name__ == '__main__':
